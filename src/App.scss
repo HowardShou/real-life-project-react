@@ -1,0 +1,30 @@
+html,
+body {
+  overflow: hidden;
+}
+html {
+  body {
+    #App {
+      height: 100vh;
+      // height: calc(var(--vh, 1vh) * 100); // 限制因鍵盤導致撐高的空白回不去
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 125px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 20px;
+  height: calc(100vh - 125px);
+}
