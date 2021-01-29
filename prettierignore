@@ -1,0 +1,10 @@
+# Ignore artifacts:
+# testing
+/coverage
+
+# production
+/build
+
+
+# Ignore all HTML files:
+# *.html
