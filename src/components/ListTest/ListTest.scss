@@ -1,0 +1,17 @@
+.active {
+  background-color: #009edb;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  button {
+    width: fit-content;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
