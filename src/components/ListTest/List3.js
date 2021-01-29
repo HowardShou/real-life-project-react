@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import dummyGen from './dummy'
-import './ListTest.scss'
+import './ListTest.module.scss'
 
 const Input = (props) => {
   const [state, setState] = useState(props.item.value)

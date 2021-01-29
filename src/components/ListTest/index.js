@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import TraditionalList from './List1'
 import RefList from './List2'
 import CompositionList from './List3'
+import styles from './ListTest.module.scss'
 
 const STATUS = {
   TRADITION: 'tradition',
@@ -28,13 +29,16 @@ export default function ListContainer() {
   return (
     <div className='App'>
       <div>
-        <button className={state === STATUS.TRADITION ? 'active' : ''} onClick={() => setState(STATUS.TRADITION)}>
+        <button className={state === STATUS.TRADITION ? styles.active : ''} onClick={() => setState(STATUS.TRADITION)}>
           TraditionalList
         </button>
-        <button className={state === STATUS.REF ? 'active' : ''} onClick={() => setState(STATUS.REF)}>
+        <button className={state === STATUS.REF ? styles.active : ''} onClick={() => setState(STATUS.REF)}>
           RefList
         </button>
-        <button className={state === STATUS.COMPOSITION ? 'active' : ''} onClick={() => setState(STATUS.COMPOSITION)}>
+        <button
+          className={state === STATUS.COMPOSITION ? styles.active : ''}
+          onClick={() => setState(STATUS.COMPOSITION)}
+        >
           CompositionList
         </button>
       </div>

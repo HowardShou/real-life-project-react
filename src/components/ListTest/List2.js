@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import dummyGen from './dummy'
-import './ListTest.scss'
+import './ListTest.module.scss'
 
 const List = () => {
   const data = useRef(dummyGen())

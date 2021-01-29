@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import dummyGen from './dummy'
-import './ListTest.scss'
 
 const List = () => {
   const [data, setData] = useState(() => dummyGen())
