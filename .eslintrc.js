@@ -19,7 +19,13 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto', //delete `cf`
+      },
+    ],
     'react/react-in-jsx-scope': 'off', // react 17 nolonger need it
+    'react/prop-types': 'off',
   },
 }
