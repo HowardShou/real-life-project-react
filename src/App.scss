@@ -27,8 +27,5 @@ html {
   justify-content: center;
   margin: 0px 20px;
   height: calc(100vh - 125px);
-  > div {
-    height: 100%;
-    overflow: auto;
-  }
+  overflow: auto;
 }
