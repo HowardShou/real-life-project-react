@@ -27,7 +27,7 @@ export default function ListContainer() {
   const [state, setState] = useState(STATUS.TRADITION)
 
   return (
-    <div className='App'>
+    <div className={styles['list-main-container']}>
       <div>
         <button className={state === STATUS.TRADITION ? styles.active : ''} onClick={() => setState(STATUS.TRADITION)}>
           TraditionalList
