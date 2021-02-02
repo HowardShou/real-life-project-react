@@ -8,19 +8,40 @@ import { years, months, statusDetector, companyDetector } from './config'
 //Main component
 const CreditForm = ({ initArgs }) => {
   const [{ cardNum, cardName, month, year, cvc, submit }, dispatch] = useReducer(reducer, initArgs, initStateGen)
-
-  // const [years] = useState(() => yearsOptions())
-  // const [months] = useState(() => monthsOptions())
-
   const company = useMemo(() => companyDetector(cardNum.value), [cardNum.value])
-  const cardNumChange = useCallback((e) => dispatch({ type: 'cardNumChange', payload: e.target.value }), [dispatch])
+
+  const cardNumChange = useCallback(
+    (e) => {
+      const rule = /\d/
+      let _payload = e.target.value
+      if (rule.test(_payload) || _payload.length === 0)
+        return dispatch({ type: 'cardNumChange', payload: e.target.value })
+    },
+    [dispatch]
+  )
   const cardNumFocus = useCallback(() => dispatch({ type: 'cardNumFocus', payload: true }), [dispatch])
   const cardNumBlur = useCallback(() => dispatch({ type: 'cardNumFocus', payload: false }), [dispatch])
+
+  const cardNameChange = useCallback((e) => dispatch({ type: 'cardNameChange', payload: e.target.value }), [dispatch])
+  const cardNameFocus = useCallback(() => dispatch({ type: 'cardNameFocus', payload: true }), [dispatch])
+  const cardNameBlur = useCallback(() => dispatch({ type: 'cardNameFocus', payload: false }), [dispatch])
+
+  const monthChange = useCallback((e) => dispatch({ type: 'monthChange', payload: e.target.value }), [dispatch])
+  const monthFocus = useCallback(() => dispatch({ type: 'monthFocus', payload: true }), [dispatch])
+  const monthBlur = useCallback(() => dispatch({ type: 'monthFocus', payload: false }), [dispatch])
+
+  const yearChange = useCallback((e) => dispatch({ type: 'yearChange', payload: e.target.value }), [dispatch])
+  const yearFocus = useCallback(() => dispatch({ type: 'yearFocus', payload: true }), [dispatch])
+  const yearBlur = useCallback(() => dispatch({ type: 'yearFocus', payload: false }), [dispatch])
+
+  const cvcChange = useCallback((e) => dispatch({ type: 'cvcChange', payload: e.target.value }), [dispatch])
+  const cvcFocus = useCallback(() => dispatch({ type: 'cvcFocus', payload: true }), [dispatch])
+  const cvcBlur = useCallback(() => dispatch({ type: 'cvcFocus', payload: false }), [dispatch])
 
   const frontSide = (
     <div className={cvc.onFocus ? 'shouldHide' : ''}>
       <div className='layout-row space-between header'>
-        <div className='chip'></div>
+        <div className='chip' />
         <div className='deliver-company'>
           <CSSTransition in={true} timeout={250} classNames='slide-fade-up' appear key={company}>
             <div className={`current-company ${company}`}></div>
@@ -86,10 +107,8 @@ const CreditForm = ({ initArgs }) => {
 
   return (
     <div className='card-form layout-column'>
-      {/* <div className={}></div> */}
       <div className={`fancy-card ${statusDetector(cvc.onFocus)}`}>
-        {/* 回想起來v-if與v-show的差異!，一般這種條件式的寫法會摧毀整個dom，然而卻把我用transition加上去的calss也清掉了，所以要靠display:none去解決! */}
-        {/* {cvc.onFocus ? backSide : frontSide} */}
+        {/* 回想起來v-if與v-show的差異!一般這種條件式的寫法會摧毀整個dom，然而卻把我用transition加上去的calss也清掉了，所以要靠display:none去解決! */}
         {frontSide}
         {backSide}
       </div>
@@ -112,9 +131,9 @@ const CreditForm = ({ initArgs }) => {
           className='input'
           type='text'
           value={cardName.value}
-          onChange={(e) => dispatch({ type: 'cardNameChange', payload: e.target.value })}
-          onFocus={() => dispatch({ type: 'cardNameFocus', payload: true })}
-          onBlur={() => dispatch({ type: 'cardNameFocus', payload: false })}
+          onChange={cardNameChange}
+          onFocus={cardNameFocus}
+          onBlur={cardNameBlur}
         />
         <span className='errMsg'></span>
       </div>
@@ -126,9 +145,9 @@ const CreditForm = ({ initArgs }) => {
               className='small-column'
               name='month'
               value={month.value}
-              onChange={(e) => dispatch({ type: 'monthChange', payload: e.target.value })}
-              onFocus={() => dispatch({ type: 'monthFocus', payload: true })}
-              onBlur={() => dispatch({ type: 'monthFocus', payload: false })}
+              onChange={monthChange}
+              onFocus={monthFocus}
+              onBlur={monthBlur}
             >
               {months}
             </select>
@@ -136,9 +155,9 @@ const CreditForm = ({ initArgs }) => {
               className='small-column'
               name='year'
               value={year.value}
-              onChange={(e) => dispatch({ type: 'yearChange', payload: e.target.value })}
-              onFocus={() => dispatch({ type: 'yearFocus', payload: true })}
-              onBlur={() => dispatch({ type: 'yearFocus', payload: false })}
+              onChange={yearChange}
+              onFocus={yearFocus}
+              onBlur={yearBlur}
             >
               {years}
             </select>
@@ -151,9 +170,9 @@ const CreditForm = ({ initArgs }) => {
             maxLength='3'
             type='text'
             value={cvc.value}
-            onChange={(e) => dispatch({ type: 'cvcChange', payload: e.target.value })}
-            onFocus={() => dispatch({ type: 'cvcFocus', payload: true })}
-            onBlur={() => dispatch({ type: 'cvcFocus', payload: false })}
+            onChange={cvcChange}
+            onFocus={cvcFocus}
+            onBlur={cvcBlur}
           />
         </div>
       </div>

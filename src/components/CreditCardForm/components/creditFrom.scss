@@ -41,12 +41,6 @@
   justify-content: center;
 }
 
-.vertical-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .space-between {
   justify-content: space-between;
 }
@@ -191,7 +185,7 @@
     }
   }
 
-  .Nums2 {
+  .numbers_container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -217,24 +211,16 @@
       &.empty {
         width: 16px;
       }
-      // &.hasValue {
-      //   color: white;
-      //   animation:enterText 0.5s ease-in-out;
-      // }
-      // &.empty {
-      //   animation:deleteText 0.5s ease-in-out;
-      //   opacity: 0;
-      // }
     }
   }
-  .test {
+  .numbers {
     position: relative;
     display: flex;
     min-height: 24px;
     &:first-child {
       position: absolute;
     }
-    .num2 {
+    .num {
       width: 10.5px; //#本身的width比較大，給固的width才能讓總長度保持不變
       &:nth-child(4),
       &:nth-child(8),

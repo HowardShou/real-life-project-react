@@ -11,7 +11,7 @@ const Number = ({ value, isActive }) => {
   // #是自己一套系統
   const empty = new Array(16).fill(undefined).map((item, idx) => (
     <CSSTransition in={!value[idx]} timeout={250} classNames='slide-fade-up' key={`num_#_${idx}`}>
-      <div className={`num2`}>#</div>
+      <div className={`num`}>#</div>
     </CSSTransition>
   ))
 
@@ -24,14 +24,14 @@ const Number = ({ value, isActive }) => {
 
   const divs = arr.map((item, idx) => (
     <CSSTransition in={!!item} timeout={250} classNames='slide-fade-up' key={`num_${idx}`}>
-      <div className={`num2`}>{item === undefined ? reservedValue[idx] : item}</div>
+      <div className={`num`}>{item === undefined ? reservedValue[idx] : item}</div>
     </CSSTransition>
   ))
 
   return (
-    <div className={`Nums2 ${isActive ? 'active' : ''}`}>
-      <div className='test'>{empty}</div>
-      <div className='test'>{divs}</div>
+    <div className={`numbers_container${isActive ? 'active' : ''}`}>
+      <div className='numbers'>{empty}</div>
+      <div className='numbers'>{divs}</div>
     </div>
   )
 }

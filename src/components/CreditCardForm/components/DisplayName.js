@@ -29,14 +29,14 @@ const Name = ({ value, isActive }) => {
 
   const owner = (
     <CSSTransition in={!value} timeout={250} classNames='slide-fade-up' appear>
-      <div className='test'>Owner</div>
+      <div className='numbers'>Owner</div>
     </CSSTransition>
   )
 
   return (
     <div className={`card-name ${isActive ? 'active' : ''}`}>
       {owner}
-      <div className='test'>{divs}</div>
+      <div className='numbers'>{divs}</div>
     </div>
   )
 }
