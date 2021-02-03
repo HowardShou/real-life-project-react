@@ -1,6 +1,5 @@
 {
   "name": "real-life-project-react",
-  "homepage": "https://howardshou.github.io/real-life-project-react/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,8 +14,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "node ./addHomePageURL.js && yarn build && node ./removeHomePageURL.js",
+    "deploy": "gh-pages -d build && yarn build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
