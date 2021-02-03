@@ -13,9 +13,8 @@ const CreditForm = ({ initArgs }) => {
   const cardNumChange = useCallback(
     (e) => {
       const rule = /\d/
-      let _payload = e.target.value
-      if (rule.test(_payload) || _payload.length === 0)
-        return dispatch({ type: 'cardNumChange', payload: e.target.value })
+      let _payload = e.target.value.replace(/\s/g, '')
+      if (rule.test(_payload) || _payload.length === 0) return dispatch({ type: 'cardNumChange', payload: _payload })
     },
     [dispatch]
   )
