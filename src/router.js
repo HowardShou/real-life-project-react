@@ -7,20 +7,20 @@ const routes = [
     path: '/Home',
     component: IG,
   },
-  {
-    path: '/Demos',
-    component: ListTest,
-    // routes: [
-    //   {
-    //     path: '/tacos/bus',
-    //     component: Bus,
-    //   },
-    //   {
-    //     path: '/tacos/cart',
-    //     component: Cart,
-    //   },
-    // ],
-  },
+  //   {
+  //     path: '/Demos',
+  //     component: ListTest,
+  // routes: [
+  //   {
+  //     path: '/tacos/bus',
+  //     component: Bus,
+  //   },
+  //   {
+  //     path: '/tacos/cart',
+  //     component: Cart,
+  //   },
+  // ],
+  //   },
   {
     path: '/Pages',
     component: CreditCardForm,

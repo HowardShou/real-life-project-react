@@ -41,7 +41,7 @@ function App() {
       {/* acting like normalize.css */}
       <CssBaseline />
       <div id='App'>
-        <Router basename='howardshou.github.io'>
+        <Router basename='real-life-project-react'>
           <div>
             <nav>
               <ul>
