@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/real-life-project-react/static/css/main.425bab33.chunk.css",
-    "main.js": "/real-life-project-react/static/js/main.6a749296.chunk.js",
-    "main.js.map": "/real-life-project-react/static/js/main.6a749296.chunk.js.map",
+    "main.js": "/real-life-project-react/static/js/main.7f2219c2.chunk.js",
+    "main.js.map": "/real-life-project-react/static/js/main.7f2219c2.chunk.js.map",
     "runtime-main.js": "/real-life-project-react/static/js/runtime-main.23c70d92.js",
     "runtime-main.js.map": "/real-life-project-react/static/js/runtime-main.23c70d92.js.map",
     "static/js/2.e66213cc.chunk.js": "/real-life-project-react/static/js/2.e66213cc.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.23c70d92.js",
     "static/js/2.e66213cc.chunk.js",
     "static/css/main.425bab33.chunk.css",
-    "static/js/main.6a749296.chunk.js"
+    "static/js/main.7f2219c2.chunk.js"
   ]
 }
