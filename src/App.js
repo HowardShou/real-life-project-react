@@ -1,25 +1,66 @@
-import { useState } from 'react'
+import { SWRConfig } from 'swr'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import routes from './router'
 import './App.scss'
-import ListTest from 'components/ListTest'
-import CreditCardForm from 'components/CreditCardForm'
-import IG from 'components/IG'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { fetcher } from 'utils'
+// import { styled } from '@material-ui/core/styles'
+// import { compose, spacing, palette } from '@material-ui/system'
+// const Box = styled('div')(compose(spacing, palette))
+
+// function RouteWithSubRoutes(route) {
+//   // console.log('🚹🚺🚻🛏️🚼 ~ file: App.js ~ line 12 ~ RouteWithSubRoutes ~ route', props)
+//   return (
+//     <Route
+//       path={route.path}
+//       // component={<props.Component {...props} />}
+//       render={(props) => {
+//         console.log('🚹🚺🚻🛏️🚼 ~ file: App.js ~ line 44 ~ RouteWithSubRoutes ~ props', props)
+//         return (
+//           // pass the sub-routes down to keep nesting
+//           <route.component {...props} routes={route.routes} />
+//         )
+//       }}
+//     />
+//   )
+// }
+
+function RouteWithSubRoutes(route) {
+  console.log('🚹🚺🚻🛏️🚼 ~ file: App.js ~ line 29 ~ RouteWithSubRoutes ~ route', route)
+  return <Route path={route.path} component={route.component} />
+}
 
 function App() {
-  const [state, setState] = useState('1')
   return (
-    <div id='App'>
-      <div className='nav'>
-        <div>navnav</div>
-        <button onClick={() => setState('0')}>change ListTest</button>
-        <button onClick={() => setState('1')}>change CreditCardForm</button>
-        <button onClick={() => setState('2')}>change IG</button>
+    <SWRConfig
+      value={{
+        // refreshInterval: 30000,
+        fetcher,
+      }}
+    >
+      {/* acting like normalize.css */}
+      <CssBaseline />
+      <div id='App'>
+        <Router basename='howardshou.github.io'>
+          <div>
+            <nav>
+              <ul>
+                {routes.map(({ path }, idx) => (
+                  <li key={idx}>
+                    <Link to={path}>{path}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <Switch>
+              {routes.map((route, idx) => (
+                <RouteWithSubRoutes key={idx} {...route} />
+              ))}
+            </Switch>
+          </div>
+        </Router>
       </div>
-      <div className='container'>
-        {state === '0' ? <ListTest /> : null}
-        {state === '1' ? <CreditCardForm /> : null}
-        {state === '2' ? <IG /> : null}
-      </div>
-    </div>
+    </SWRConfig>
   )
 }
 
