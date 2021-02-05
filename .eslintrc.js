@@ -27,6 +27,7 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off', // react 17 nolonger need it
     'react/prop-types': 'off',
-    'no-undef': 'off',
+    // 'no-undef': 'off',
+    'no-unused-vars': 'off',
   },
 }
