@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import useSWR from 'swr'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import Image from 'material-ui-image'
@@ -10,19 +10,42 @@ function getRandom(x) {
   return Math.floor(Math.random() * x) + 1
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-  },
-}))
+const useStyles = makeStyles((theme) => {
+  console.log('🚹🚺🚻🛏️🚼 ~ file: index.js ~ line 14 ~ useStyles ~ theme', theme)
+
+  return {
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+    },
+    gridList: {
+      width: 500,
+      height: 450,
+    },
+  }
+})
+
+function ReadingProgressBar() {
+  return (
+    <iframe
+      height='640'
+      style={{ width: '100%' }}
+      scrolling='no'
+      title='dynamic progress bar depends on scroll height'
+      src='https://codepen.io/Aksas/embed/RwGYXRE?height=640&theme-id=dark&default-tab=js,result'
+      frameBorder='no'
+      loading='lazy'
+      allowtransparency
+      allowFullScreen
+    >
+      See the Pen <a href='https://codepen.io/Aksas/pen/RwGYXRE'>dynamic progress bar depends on scroll height</a> by
+      HowardShou (<a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+  )
+}
 
 const Images = (props) => {
   const [page, setPage] = useState(1)
