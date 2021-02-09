@@ -1,6 +1,7 @@
 import ListTest from 'components/ListTest'
 import CreditCardForm from 'components/CreditCardForm'
 import IG from 'components/IG'
+import Iframes from 'components/IframeDemos'
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: '/Pages',
     component: CreditCardForm,
+  },
+  {
+    path: '/OnlineDemos',
+    component: Iframes,
   },
   //   {
   //     path: '/Blog',

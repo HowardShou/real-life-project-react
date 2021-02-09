@@ -21,11 +21,11 @@ html {
   height: 125px;
 }
 
-.container {
+.route-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin: 0px 20px;
-  height: calc(100vh - 125px);
+  margin: 20px;
+  height: calc(97% - 125px);
   overflow: auto;
 }

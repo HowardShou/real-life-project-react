@@ -42,8 +42,8 @@ function App() {
       <CssBaseline />
       <div id='App'>
         <Router basename='real-life-project-react'>
-          <div>
-            <nav>
+          <>
+            <nav className='nav'>
               <ul>
                 {routes.map(({ path }, idx) => (
                   <li key={idx}>
@@ -52,12 +52,14 @@ function App() {
                 ))}
               </ul>
             </nav>
-            <Switch>
-              {routes.map((route, idx) => (
-                <RouteWithSubRoutes key={idx} {...route} />
-              ))}
-            </Switch>
-          </div>
+            <div className='route-container'>
+              <Switch>
+                {routes.map((route, idx) => (
+                  <RouteWithSubRoutes key={idx} {...route} />
+                ))}
+              </Switch>
+            </div>
+          </>
         </Router>
       </div>
     </SWRConfig>
