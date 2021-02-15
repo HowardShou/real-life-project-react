@@ -6,7 +6,7 @@ const Number = ({ value, isActive }) => {
   const [reservedValue, setReservedValue] = useState('')
   useEffect(() => {
     if (value.length > reservedValue.length) setReservedValue(value)
-  }, [value])
+  }, [value, reservedValue.length])
 
   // #是自己一套系統
   const empty = new Array(16).fill(undefined).map((item, idx) => (
@@ -29,7 +29,7 @@ const Number = ({ value, isActive }) => {
   ))
 
   return (
-    <div className={`numbers_container${isActive ? 'active' : ''}`}>
+    <div className={`numbers_container ${isActive ? 'active' : ''}`}>
       <div className='numbers'>{empty}</div>
       <div className='numbers'>{divs}</div>
     </div>

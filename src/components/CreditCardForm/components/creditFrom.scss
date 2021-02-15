@@ -28,6 +28,9 @@
   &:active {
     animation: gradientChange infinite 3s;
   }
+  @media screen and (max-width: 599px) {
+    width: 100px;
+  }
 }
 
 .layout-row {
@@ -45,6 +48,14 @@
   justify-content: space-between;
 }
 
+.card-form_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-form {
   position: relative;
   * {
@@ -55,9 +66,10 @@
   }
   background-color: #fff;
   border-radius: 10px;
+  min-width: 310px;
   width: 400px;
   max-width: 400px;
-  padding: 140px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   .input {
     @extend %focus;
     &-container {
@@ -105,12 +117,12 @@
   }
 
   .fancy-card {
-    position: absolute;
-    left: 5%;
-    top: -26%;
+    position: relative;
     border-radius: 10px;
+    margin-top: -100px;
+    margin-bottom: 50px;
     padding: 20px;
-    width: 90%;
+    width: 100%;
     min-height: 218px;
     height: 218px;
     background: url(../assets/creditcard.png);
@@ -191,8 +203,8 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    width: 70%;
-    padding: 8px 0px;
+    width: fit-content;
+    padding: 10px 10px;
     &.active {
       border: 1px solid white;
       animation: bigToSmall 0.25s ease;
@@ -291,6 +303,7 @@
 }
 
 // 特別為了解決像是month或year這種select變化的，搭配key使用
+// 初始出現時需要用到appear
 .slide-fade-up-appear {
   opacity: 0;
   transform: translateY(15px);
@@ -349,19 +362,17 @@
   transition: all 0.25s ease-in-out;
   opacity: 1;
   transform: translateX(0px) rotate(0deg);
-  // transition-delay: 0.1s;
 }
 
 .slide-fade-right-appear-done {
   transition: all 0.25s ease-in-out;
   opacity: 1;
-  transform: rotate(180deg);
+  transform: translateX(0px) rotate(0deg);
 }
 
 .slide-fade-right-enter {
   opacity: 0;
   transform: translateX(10px) rotate(45deg);
-  // position: absolute;
 }
 
 .slide-fade-right-enter-active {
@@ -400,35 +411,12 @@
 
 @keyframes bigToSmall {
   0% {
-    width: 85%;
-    padding: 20px 0px;
+    // width: 85%;
+    padding: 20px 20px;
   }
   100% {
-    width: 70%;
-    padding: 8px 0px;
-    // border:1px solid red ;
-    // background-color: red;
-  }
-}
-
-@keyframes enterText {
-  0% {
-    opacity: 0;
-    transform: rotateZ(45deg) translate(10px, 0px);
-  }
-  100% {
-    opacity: 1;
-    transform: rotateZ(0deg) translate(0px, 0px);
-  }
-}
-@keyframes deleteText {
-  0% {
-    opacity: 1;
-    transform: rotateZ(0deg) translate(0px, 0px);
-  }
-  100% {
-    opacity: 0;
-    transform: rotateZ(-45deg) translate(10px, 0px);
+    // width: fit-content;
+    padding: 10px 10px;
   }
 }
 
@@ -449,3 +437,36 @@
     transform: rotateY(0deg);
   }
 }
+
+@media screen and (max-width: 599px) {
+  .card-form_container {
+    align-items: flex-start;
+  }
+
+  .card-form {
+    .fancy-card {
+      margin: 5px 0px 25px 0px;
+    }
+  }
+}
+
+// @keyframes enterText {
+//   0% {
+//     opacity: 0;
+//     transform: rotateZ(45deg) translate(10px, 0px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: rotateZ(0deg) translate(0px, 0px);
+//   }
+// }
+// @keyframes deleteText {
+//   0% {
+//     opacity: 1;
+//     transform: rotateZ(0deg) translate(0px, 0px);
+//   }
+//   100% {
+//     opacity: 0;
+//     transform: rotateZ(-45deg) translate(10px, 0px);
+//   }
+// }

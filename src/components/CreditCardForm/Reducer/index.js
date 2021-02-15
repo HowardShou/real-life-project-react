@@ -1,7 +1,6 @@
 const defaultParams = {
   value: '',
   errMsg: '',
-  onFocus: null,
 }
 
 const initArgs = {
