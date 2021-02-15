@@ -1,0 +1,98 @@
+.list-container {
+  position: relative;
+  top: -20px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 50%;
+  min-width: 300px;
+  height: fit-content;
+  &.edit-mode {
+    .inside-btns {
+      display: flex;
+    }
+  }
+
+  //   .sticky-constraintrectangle {
+  //     height: 70px;
+  //   }
+
+  .top-btns {
+    display: flex;
+    position: sticky;
+    top: -20px;
+    background-color: #fff;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px 0px;
+    justify-content: space-around;
+    button {
+      margin: 0px 5px;
+      border-radius: 5px;
+      background-color: rgba(56, 116, 207, 0.5);
+      padding: 5px;
+      color: #1f2630;
+      font-weight: 600;
+    }
+  }
+  .item {
+    border-top: 1px solid rgba(4, 4, 4, 0.3);
+    padding: 10px;
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    // pointer-events:none;
+    // z-index: 0;
+  }
+
+  .input-container {
+    width: 85%;
+  }
+
+  .input {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    padding: 5px;
+    overflow: visible;
+    //disabled屬性有一個隱藏的特性:會擋掉它身上的event!，所以我訂閱的dblClcik事件怎樣都無法觸發
+    // 這也是為何要多加一個.input-container的原因
+    &[disabled] {
+      cursor: pointer;
+      overflow: hidden;
+      background-color: rgba(250, 250, 2, 0.2);
+      border-radius: 10px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .inside-btns {
+    display: none;
+    button {
+      background-color: #d42050;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      border: 0;
+      width: 25px;
+      height: 25px;
+      box-shadow: 2px 2px 3px 0px #888;
+      :focus {
+        outline: none;
+      }
+    }
+  }
+
+  .checkbox {
+    margin-right: 5px;
+    cursor: pointer;
+    user-select: none; //新學到的prop
+    &.checked {
+      + .input-container > textarea {
+        text-decoration: line-through;
+      }
+    }
+  }
+}
