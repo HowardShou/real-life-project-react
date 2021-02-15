@@ -9,6 +9,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Header from './components/Header'
 import PATHES from './constants/pathes'
+import DYNAMIC_MINUS_HEIGHT from './constants/dynamicMinusHeight'
 import './App.scss'
 
 function RouteWithSubRoutes(route) {
@@ -33,19 +34,19 @@ const useStyle = makeStyles({
     backgroundColor: '#fff',
     transition: 'background-color 250ms ease-in',
   },
-  subContainer: {
-    height: '100%',
-    overflow: 'auto',
-    // padding: 0,
-  },
+  // subContainer: {
+  //   height: '100%',
+  //   overflow: 'auto',
+  //   padding: 0,
+  // },
   gr: {
     backgroundColor: '#CFFFF1',
   },
   ye: {
     backgroundColor: '#FFE797',
   },
-  pu: {
-    backgroundColor: '#9999FB',
+  db: {
+    backgroundColor: '#163e75',
   },
   pi: {
     backgroundColor: '#FF96BD',
@@ -65,10 +66,11 @@ function AnimationApp() {
 
   const headerHeight = useMemo(() => {
     let headerHeight = 0
-    if (location.pathname.includes('/Demos') && matches) headerHeight = 220
-    else if (location.pathname.includes('/Demos') && !matches) headerHeight = 78
-    else if (!location.pathname.includes('/Demos') && matches) headerHeight = 96
-    else if (!location.pathname.includes('/Demos') && !matches) headerHeight = 48
+    if (location.pathname.includes('/Demos') && matches) headerHeight = DYNAMIC_MINUS_HEIGHT.DEMO_AND_MOBILE
+    else if (location.pathname.includes('/Demos') && !matches) headerHeight = DYNAMIC_MINUS_HEIGHT.DEMO_BUT_NOT_MOBILE
+    else if (!location.pathname.includes('/Demos') && matches) headerHeight = DYNAMIC_MINUS_HEIGHT.NOT_DEMO_BUT_MOBILE
+    else if (!location.pathname.includes('/Demos') && !matches)
+      headerHeight = DYNAMIC_MINUS_HEIGHT.NOT_DEMO_AND_NOT_MOBILE
     return headerHeight
   }, [location.pathname, matches])
 
@@ -81,7 +83,7 @@ function AnimationApp() {
         bgcolor = classes.ye
         break
       case PATHES.DEMOS:
-        bgcolor = classes.pu
+        bgcolor = classes.db
         break
       case PATHES.CREDIT_CARD_FORM:
         bgcolor = classes.bl
@@ -96,7 +98,7 @@ function AnimationApp() {
         bgcolor = classes.ye
     }
     return bgcolor
-  }, [location.pathname, classes.ye, classes.gr, classes.bl, classes.pu, classes.or])
+  }, [location.pathname, classes.ye, classes.gr, classes.bl, classes.db, classes.or])
 
   return (
     // 第一層container，用於設置第一層padding，不過為了背景上色，把maxWidth拿掉
