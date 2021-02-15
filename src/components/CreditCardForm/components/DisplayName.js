@@ -11,7 +11,7 @@ const Name = ({ value, isActive }) => {
       setMaxLength(value.length)
       setReservedValue(value)
     }
-  }, [value])
+  }, [value, maxLength])
 
   let arr = new Array(maxLength).fill(undefined)
   for (let i = 0, l = maxLength; i < l; i++) {

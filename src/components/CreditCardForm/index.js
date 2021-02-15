@@ -14,7 +14,7 @@ const CreditForm = ({ initArgs }) => {
     (e) => {
       const rule = /^\d*$/
       let _payload = e.target.value.replace(/\s/g, '')
-      if (rule.test(_payload) || _payload.length === 0) return dispatch({ type: 'cardNumChange', payload: _payload })
+      if (rule.test(_payload) || _payload === '') return dispatch({ type: 'cardNumChange', payload: _payload })
     },
     [dispatch]
   )
@@ -105,82 +105,85 @@ const CreditForm = ({ initArgs }) => {
   )
 
   return (
-    <div className='card-form layout-column'>
-      <div className={`fancy-card ${statusDetector(cvc.onFocus)}`}>
-        {/* 回想起來v-if與v-show的差異!一般這種條件式的寫法會摧毀整個dom，然而卻把我用transition加上去的calss也清掉了，所以要靠display:none去解決! */}
-        {frontSide}
-        {backSide}
-      </div>
-      <div className='layout-column input-container'>
-        <span className='title'>Card Number</span>
-        <input
-          className='input'
-          maxLength='16'
-          type='text'
-          value={cardNum.value}
-          onChange={cardNumChange}
-          onFocus={cardNumFocus}
-          onBlur={cardNumBlur}
-        />
-        <span className='errMsg'></span>
-      </div>
-      <div className='layout-column input-container'>
-        <span className='title'>Card Name</span>
-        <input
-          className='input'
-          type='text'
-          value={cardName.value}
-          onChange={cardNameChange}
-          onFocus={cardNameFocus}
-          onBlur={cardNameBlur}
-        />
-        <span className='errMsg'></span>
-      </div>
-      <div className='layout-row space-between input-container'>
-        <div className='layout-column expiration-date'>
-          <span className='title'>Expiration Date</span>
-          <div className='layout-row select-container'>
-            <select
+    <div className='card-form_container'>
+      <div className='card-form layout-column'>
+        {/* <div className={'fancy-card reverse-side'}> */}
+        <div className={`fancy-card ${statusDetector(cvc.onFocus)}`}>
+          {/* 回想起來v-if與v-show的差異!一般這種條件式的寫法會摧毀整個dom，然而卻把我用transition加上去的calss也清掉了，所以要靠display:none去解決! */}
+          {frontSide}
+          {backSide}
+        </div>
+        <div className='layout-column input-container'>
+          <span className='title'>Card Number</span>
+          <input
+            className='input'
+            maxLength='16'
+            type='text'
+            value={cardNum.value}
+            onChange={cardNumChange}
+            onFocus={cardNumFocus}
+            onBlur={cardNumBlur}
+          />
+          <span className='errMsg'></span>
+        </div>
+        <div className='layout-column input-container'>
+          <span className='title'>Card Name</span>
+          <input
+            className='input'
+            type='text'
+            value={cardName.value}
+            onChange={cardNameChange}
+            onFocus={cardNameFocus}
+            onBlur={cardNameBlur}
+          />
+          <span className='errMsg'></span>
+        </div>
+        <div className='layout-row space-between input-container'>
+          <div className='layout-column expiration-date'>
+            <span className='title'>Expiration Date</span>
+            <div className='layout-row select-container'>
+              <select
+                className='small-column'
+                name='month'
+                value={month.value}
+                onChange={monthChange}
+                onFocus={monthFocus}
+                onBlur={monthBlur}
+              >
+                {months}
+              </select>
+              <select
+                className='small-column'
+                name='year'
+                value={year.value}
+                onChange={yearChange}
+                onFocus={yearFocus}
+                onBlur={yearBlur}
+              >
+                {years}
+              </select>
+            </div>
+          </div>
+          <div className='layout-column cvc'>
+            <span className='title'>CVC</span>
+            <input
               className='small-column'
-              name='month'
-              value={month.value}
-              onChange={monthChange}
-              onFocus={monthFocus}
-              onBlur={monthBlur}
-            >
-              {months}
-            </select>
-            <select
-              className='small-column'
-              name='year'
-              value={year.value}
-              onChange={yearChange}
-              onFocus={yearFocus}
-              onBlur={yearBlur}
-            >
-              {years}
-            </select>
+              maxLength='3'
+              type='text'
+              value={cvc.value}
+              onChange={cvcChange}
+              onFocus={cvcFocus}
+              onBlur={cvcBlur}
+            />
           </div>
         </div>
-        <div className='layout-column cvc'>
-          <span className='title'>CVC</span>
-          <input
-            className='small-column'
-            maxLength='3'
-            type='text'
-            value={cvc.value}
-            onChange={cvcChange}
-            onFocus={cvcFocus}
-            onBlur={cvcBlur}
-          />
-        </div>
-      </div>
-      <div className='layout-row button-container'>
-        <div className='submit' onClick={submit}>
-          Submit
-        </div>
-        <div className='reset' onClick={() => dispatch({ type: 'resetAll', payload: initArgs })}>
-          Reset
+        <div className='layout-row button-container'>
+          <div className='submit' onClick={submit}>
+            Submit
+          </div>
+          <div className='reset' onClick={() => dispatch({ type: 'resetAll', payload: initArgs })}>
+            Reset
+          </div>
         </div>
       </div>
     </div>
