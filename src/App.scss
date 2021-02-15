@@ -25,7 +25,27 @@ html {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  margin: 20px;
-  height: calc(97% - 125px);
+  padding: 20px;
+  height: calc(100% - 48px);
   overflow: auto;
+  background-color: #fff;
+  transition: background-color 250ms ease-in;
+  &.og {
+    background-color: #ffe797;
+    transition: background-color 250ms ease-in;
+  }
+  &.ye {
+    background-color: #cffff1;
+    transition: background-color 250ms ease-in;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5000ms ease-in;
 }

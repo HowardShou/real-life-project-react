@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
+import Pagination from '@material-ui/lab/Pagination'
 import Image from 'material-ui-image'
 
 function getRandom(x) {
@@ -16,36 +17,18 @@ const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
+      flexDirection: 'column',
+      // flexWrap: 'wrap',
+      // justifyContent: 'space-around',
+      // overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
     },
-    gridList: {
-      width: 500,
-      height: 450,
-    },
+    // gridList: {
+    //   width: 500,
+    //   height: 450,
+    // },
   }
 })
-
-function ReadingProgressBar() {
-  return (
-    <iframe
-      height='640'
-      style={{ width: '100%' }}
-      scrolling='no'
-      title='dynamic progress bar depends on scroll height'
-      src='https://codepen.io/Aksas/embed/RwGYXRE?height=640&theme-id=dark&default-tab=js,result'
-      frameBorder='no'
-      loading='lazy'
-      allowtransparency
-      allowFullScreen
-    >
-      See the Pen <a href='https://codepen.io/Aksas/pen/RwGYXRE'>dynamic progress bar depends on scroll height</a> by
-      HowardShou (<a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
-    </iframe>
-  )
-}
 
 const Images = (props) => {
   const [page, setPage] = useState(1)
@@ -58,20 +41,26 @@ const Images = (props) => {
 
   const formatPics = useMemo(
     () =>
-      pics?.map((detail) => {
+      pics?.map((detail, idx) => {
+        console.log('🚹🚺🚻🛏️🚼 ~ file: index.js ~ line 45 ~ pics?.map ~ idx', idx)
         const [protocol, domainStr] = detail.download_url.split('//')
         const domainArr = domainStr.split('/')
         let [width, height] = domainArr.splice(-2, 2)
         width = 200
         height = 200
         const newUrl = `${protocol}//${domainArr.join('/')}/${width}/${height}`
-        return { ...detail, download_url: newUrl }
+
+        let cols = 1
+        if (idx % 3 === 0) cols = 2
+
+        return { ...detail, download_url: newUrl, cols }
       }),
     [pics]
   )
+  console.log('🚹🚺🚻🛏️🚼 ~ file: index.js ~ line 60 ~ Images ~ formatPics', formatPics)
 
-  const handleClick1 = () => {
-    setPage(getRandom(30))
+  const handleClick1 = (event, value) => {
+    setPage(value)
   }
 
   const handleClick2 = () => {
@@ -90,7 +79,7 @@ const Images = (props) => {
       <Button variant='secondary' color='primary' onClick={handleClick2}>
         fetch data
       </Button>
-      <Button
+      {/* <Button
         variant='secondary'
         color='primary'
         onClick={() => {
@@ -107,15 +96,16 @@ const Images = (props) => {
         }}
       >
         -1
-      </Button>
+      </Button> */}
       <div className={classes.root}>
-        <GridList cellHeight={160} className={classes.gridList} cols={3}>
+        <GridList cellHeight={200} className={classes.gridList} cols={4}>
           {formatPics?.map((pic) => (
             <GridListTile key={pic.download_url} cols={pic.cols || 1}>
               <Image src={pic.download_url} alt={pic.title} />
             </GridListTile>
           ))}
         </GridList>
+        <Pagination count={30} page={page} variant='outlined' color='secondary' onChange={handleClick1} />
         {/* <div>{pics && pics.map((item, idx) => <img key={idx} src={item.download_url} />)}</div> */}
         {jsonArr ? JSON.stringify(jsonArr) : null}
       </div>
