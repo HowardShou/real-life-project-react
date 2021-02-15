@@ -1,16 +1,15 @@
+import Demos from './components/Demos'
 import ListTest from 'components/ListTest'
+import TodoList from 'components/TodoList'
 import CreditCardForm from 'components/CreditCardForm'
-import IG from 'components/IG'
+import PhotoFetcher from 'components/PhotoFetcher'
 import Iframes from 'components/IframeDemos'
-import MailOutline from '@material-ui/icons/MailOutline'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined'
 import AppsIcon from '@material-ui/icons/Apps'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
-import IconButton from '@material-ui/core/IconButton'
-import { Link as RouterLink } from 'react-router-dom'
-// import { grey } from '@material-ui/core/colors'
+import PATHES from './constants/pathes'
 
 const iconStyle = {
   color: '#fff',
@@ -18,30 +17,36 @@ const iconStyle = {
 
 const routes = [
   {
-    path: '/Home',
-    // label: 'Home',
+    path: PATHES.HOME,
     icon: <HomeOutlinedIcon style={iconStyle} />,
-    component: IG,
+    component: PhotoFetcher,
     isRouterLink: true,
     title: 'Home',
   },
   {
-    path: '/Demos',
-    // label: 'Demos',
+    path: PATHES.DEMOS,
     icon: <AppsIcon style={iconStyle} />,
-    component: CreditCardForm,
+    component: Demos,
     isRouterLink: true,
     title: 'Demos',
-    // routes: [
-    //   {
-    //     path: '/Demos/CreditCardForm',
-    //     component: CreditCardForm,
-    //   },
-    //   {
-    //     path: '/Demos/ToDoList',
-    //     component: IG,
-    //   },
-    // ],
+    routes: [
+      {
+        path: PATHES.CREDIT_CARD_FORM,
+        component: CreditCardForm,
+      },
+      {
+        path: PATHES.TODOLIST,
+        component: TodoList,
+      },
+      {
+        path: PATHES.PHOTOS_FETCHER,
+        component: PhotoFetcher,
+      },
+      {
+        path: PATHES.ONLINE_DEMOS,
+        component: Iframes,
+      },
+    ],
   },
   {
     path: 'https://github.com/HowardShou/real-life-project-react',
