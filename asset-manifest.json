@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/real-life-project-react/static/css/main.afbbe920.chunk.css",
-    "main.js": "/real-life-project-react/static/js/main.5384a498.chunk.js",
-    "main.js.map": "/real-life-project-react/static/js/main.5384a498.chunk.js.map",
-    "runtime-main.js": "/real-life-project-react/static/js/runtime-main.737d0bb9.js",
-    "runtime-main.js.map": "/real-life-project-react/static/js/runtime-main.737d0bb9.js.map",
-    "static/js/2.4c0a13d8.chunk.js": "/real-life-project-react/static/js/2.4c0a13d8.chunk.js",
-    "static/js/2.4c0a13d8.chunk.js.map": "/real-life-project-react/static/js/2.4c0a13d8.chunk.js.map",
-    "static/js/3.b4ac5621.chunk.js": "/real-life-project-react/static/js/3.b4ac5621.chunk.js",
-    "static/js/3.b4ac5621.chunk.js.map": "/real-life-project-react/static/js/3.b4ac5621.chunk.js.map",
+    "main.css": "/real-life-project-react/static/css/main.2ddac8ba.chunk.css",
+    "main.js": "/real-life-project-react/static/js/main.2a6e5bcf.chunk.js",
+    "main.js.map": "/real-life-project-react/static/js/main.2a6e5bcf.chunk.js.map",
+    "runtime-main.js": "/real-life-project-react/static/js/runtime-main.2f579700.js",
+    "runtime-main.js.map": "/real-life-project-react/static/js/runtime-main.2f579700.js.map",
+    "static/js/2.55311ab6.chunk.js": "/real-life-project-react/static/js/2.55311ab6.chunk.js",
+    "static/js/2.55311ab6.chunk.js.map": "/real-life-project-react/static/js/2.55311ab6.chunk.js.map",
+    "static/js/3.9ec371ca.chunk.js": "/real-life-project-react/static/js/3.9ec371ca.chunk.js",
+    "static/js/3.9ec371ca.chunk.js.map": "/real-life-project-react/static/js/3.9ec371ca.chunk.js.map",
     "index.html": "/real-life-project-react/index.html",
-    "static/css/main.afbbe920.chunk.css.map": "/real-life-project-react/static/css/main.afbbe920.chunk.css.map",
-    "static/js/2.4c0a13d8.chunk.js.LICENSE.txt": "/real-life-project-react/static/js/2.4c0a13d8.chunk.js.LICENSE.txt",
+    "static/css/main.2ddac8ba.chunk.css.map": "/real-life-project-react/static/css/main.2ddac8ba.chunk.css.map",
+    "static/js/2.55311ab6.chunk.js.LICENSE.txt": "/real-life-project-react/static/js/2.55311ab6.chunk.js.LICENSE.txt",
     "static/media/creditFrom.scss": "/real-life-project-react/static/media/unionpay.5c3adaa8.png",
     "static/media/debounce-and-throttle.ee73b288.png": "/real-life-project-react/static/media/debounce-and-throttle.ee73b288.png",
     "static/media/dynamic-credit-card-form.0d22b089.png": "/real-life-project-react/static/media/dynamic-credit-card-form.0d22b089.png",
@@ -21,9 +21,9 @@
     "static/media/simple-photos-distributor.cfa6b8fe.png": "/real-life-project-react/static/media/simple-photos-distributor.cfa6b8fe.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.737d0bb9.js",
-    "static/js/2.4c0a13d8.chunk.js",
-    "static/css/main.afbbe920.chunk.css",
-    "static/js/main.5384a498.chunk.js"
+    "static/js/runtime-main.2f579700.js",
+    "static/js/2.55311ab6.chunk.js",
+    "static/css/main.2ddac8ba.chunk.css",
+    "static/js/main.2a6e5bcf.chunk.js"
   ]
 }
