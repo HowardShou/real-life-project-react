@@ -1,7 +1,8 @@
 import { useMemo } from 'react'
 import { SWRConfig } from 'swr'
 import routes from './router'
-import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, useLocation } from 'react-router-dom'
+import { SwitchRoutesContainer } from 'components/RouterComponents'
 import { fetcher } from 'utils'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
@@ -11,17 +12,6 @@ import Header from './components/Header'
 import PATHES from './constants/pathes'
 import DYNAMIC_MINUS_HEIGHT from './constants/dynamicMinusHeight'
 import './App.scss'
-
-function RouteWithSubRoutes(route) {
-  return (
-    <Route
-      path={route.path}
-      render={(props) => {
-        return <route.component {...props} routes={route.routes} />
-      }}
-    />
-  )
-}
 
 const useStyle = makeStyles({
   route_container: {
@@ -106,11 +96,7 @@ function AnimationApp() {
       {/* 如果不設第二層container設置maxWidth再用margin 0 auto置中，記得底下的容器的container要自己給寬度 */}
       {/* 如果用了第二層container，需要給subContainer的相關屬性撐大它外，大螢幕scrollbar出現的位置也會比較不直觀，最後不採用 */}
       {/* <Container className={classes.subContainer}> */}
-      <Switch>
-        {routes.map((route, idx) => (
-          <RouteWithSubRoutes key={idx} {...route} />
-        ))}
-      </Switch>
+      <SwitchRoutesContainer routes={routes} />
       {/* </Container> */}
     </Container>
   )

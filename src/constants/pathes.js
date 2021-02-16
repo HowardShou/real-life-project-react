@@ -1,5 +1,5 @@
 const PATHES = {
-  HOME: '/Home',
+  HOME: '/',
   DEMOS: '/Demos',
   CREDIT_CARD_FORM: '/Demos/CreditCardForm',
   TODOLIST: '/Demos/ToDoList',

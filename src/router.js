@@ -1,70 +1,64 @@
-import Demos from './components/Demos'
-import ListTest from 'components/ListTest'
+import { SwitchRoutesContainer } from 'components/RouterComponents'
+import NoMatch from 'components/NoMatch'
 import TodoList from 'components/TodoList'
 import CreditCardForm from 'components/CreditCardForm'
+import DemoSite from 'components/DemoSite'
 import PhotoFetcher from 'components/PhotoFetcher'
 import Iframes from 'components/IframeDemos'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined'
-import AppsIcon from '@material-ui/icons/Apps'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import PATHES from './constants/pathes'
-
-const iconStyle = {
-  color: '#fff',
-}
 
 const routes = [
   {
     path: PATHES.HOME,
-    icon: <HomeOutlinedIcon style={iconStyle} />,
     component: PhotoFetcher,
-    isRouterLink: true,
-    title: 'Home',
+    exact: true,
+    routes: [],
   },
   {
     path: PATHES.DEMOS,
-    icon: <AppsIcon style={iconStyle} />,
-    component: Demos,
-    isRouterLink: true,
-    title: 'Demos',
+    component: SwitchRoutesContainer,
+    // 若設為true，/Demos/OOXX...等路徑都會因為不合於/Demos而不被render!
+    exact: false,
     routes: [
+      {
+        path: PATHES.DEMOS,
+        component: DemoSite,
+        exact: true,
+        routes: [],
+      },
       {
         path: PATHES.CREDIT_CARD_FORM,
         component: CreditCardForm,
+        exact: true,
+        routes: [],
       },
       {
         path: PATHES.TODOLIST,
         component: TodoList,
+        exact: true,
+        routes: [],
       },
       {
         path: PATHES.PHOTOS_FETCHER,
         component: PhotoFetcher,
+        exact: true,
+        routes: [],
       },
       {
         path: PATHES.ONLINE_DEMOS,
         component: Iframes,
+        exact: true,
+        routes: [],
+      },
+      {
+        path: '*',
+        component: NoMatch,
       },
     ],
   },
   {
-    path: 'https://github.com/HowardShou/real-life-project-react',
-    title: 'Repo',
-    icon: <GitHubIcon style={iconStyle} />,
-    isRouterLink: false,
-  },
-  {
-    path: 'https://www.linkedin.com/in/howard-shou-%E5%A3%BD%E5%93%81%E7%9A%93-6492b71a5/',
-    title: 'profile',
-    icon: <AccountCircleIcon style={iconStyle} />,
-    isRouterLink: false,
-  },
-  {
-    path: 'https://howardshou.github.io/real-life-project/index.html',
-    title: 'Legacy Portfolio',
-    icon: <BusinessCenterOutlinedIcon style={iconStyle} />,
-    isRouterLink: false,
+    path: '*',
+    component: NoMatch,
   },
 ]
 
