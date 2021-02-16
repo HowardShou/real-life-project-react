@@ -8,6 +8,7 @@ import logo from 'assets/react.svg'
 import styles from './MainHead.module.scss'
 import { useTheme, makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import MainHeadConfig from './config'
 
 const useStyle = makeStyles({
   title: {
@@ -18,7 +19,7 @@ const useStyle = makeStyles({
   },
 })
 
-const Header = ({ routes }) => {
+const Header = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const classes = useStyle()
@@ -32,7 +33,7 @@ const Header = ({ routes }) => {
         </Typography>
       </Box>
       <Box display='flex' justifyContent='flex-end' flexWrap='wrap' className={matches ? classes.icons : null}>
-        {routes.map((i, idx) => {
+        {MainHeadConfig.map((i, idx) => {
           const linkProps = i.isRouterLink
             ? {
                 component: RouterLink,
