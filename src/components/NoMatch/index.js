@@ -1,5 +1,5 @@
 const NoMatch = () => {
-  return <div>{'oops, nothing match here :('}</div>
+  return <h1>{'oops, nothing match here :('}</h1>
 }
 
 export default NoMatch

@@ -1,4 +1,6 @@
+import { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import LoadingCircle from 'components/LoadingCircle'
 
 function RouteWithSubRoutes({ routes, ...props }) {
   return (
@@ -13,10 +15,12 @@ function RouteWithSubRoutes({ routes, ...props }) {
 
 export function SwitchRoutesContainer({ routes }) {
   return (
-    <Switch>
-      {routes.map((route, idx) => (
-        <RouteWithSubRoutes key={idx} {...route} />
-      ))}
-    </Switch>
+    <Suspense fallback={<LoadingCircle />}>
+      <Switch>
+        {routes.map((route, idx) => (
+          <RouteWithSubRoutes key={idx} {...route} />
+        ))}
+      </Switch>
+    </Suspense>
   )
 }

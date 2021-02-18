@@ -21,7 +21,7 @@ function ReadingProgressBar() {
         src='https://codepen.io/Aksas/embed/RwGYXRE?height=640&theme-id=dark&default-tab=js,result'
         frameBorder='no'
         loading='lazy'
-        allowtransparency
+        allowtransparency='true'
         allowFullScreen
       >
         See the Pen <a href='https://codepen.io/Aksas/pen/RwGYXRE'>dynamic progress bar depends on scroll height</a> by
@@ -46,7 +46,7 @@ function DebounceThrottleDemo() {
         frameBorder='no'
         loading='lazy'
         allowtransparency='true'
-        allowFullScreen='true'
+        allowFullScreen
       >
         See the Pen <a href='https://codepen.io/Aksas/pen/QWyYgyG'>debounce and throttle</a> by HowardShou (
         <a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -69,7 +69,7 @@ function DynamicMarquee() {
         src='https://codepen.io/Aksas/embed/WNrzWKz?height=265&theme-id=dark&default-tab=js,result'
         frameBorder='no'
         loading='lazy'
-        allowtransparency
+        allowtransparency='true'
         allowFullScreen
       >
         See the Pen{' '}
@@ -93,7 +93,7 @@ const Iframes = () => {
   }, [location.hash])
 
   return (
-    <Box display='flex' width='80%' maxWidth='80%' flexDirection='column' justifyContent='centerer'>
+    <Box display='flex' width='100%' flexDirection='column' justifyContent='centerer'>
       <ReadingProgressBar />
       <DebounceThrottleDemo />
       <DynamicMarquee />
