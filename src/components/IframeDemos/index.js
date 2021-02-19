@@ -80,6 +80,30 @@ function DynamicMarquee() {
   )
 }
 
+function AccessCssVariable() {
+  return (
+    <Box mb={3}>
+      <Typography component='div' variant='h4' id='access-css-variable'>
+        <Box mb={2} color='common.black' letterSpacing={1}>{`Access CSS Variable in Valina JS`}</Box>
+      </Typography>
+      <iframe
+        height='386'
+        style={iframeWidth}
+        scrolling='no'
+        title='Access CSS Variable in Valina JS'
+        src='https://codepen.io/Aksas/embed/BaQRJrO?height=386&theme-id=dark&default-tab=js,result'
+        frameBorder='no'
+        loading='lazy'
+        allowtransparency='true'
+        allowFullScreen
+      >
+        See the Pen <a href='https://codepen.io/Aksas/pen/BaQRJrO'>Access CSS Variable in Valina JS</a> by HowardShou (
+        <a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
+    </Box>
+  )
+}
+
 const Iframes = () => {
   const location = useLocation()
 
@@ -97,6 +121,7 @@ const Iframes = () => {
       <ReadingProgressBar />
       <DebounceThrottleDemo />
       <DynamicMarquee />
+      <AccessCssVariable />
     </Box>
   )
 }
