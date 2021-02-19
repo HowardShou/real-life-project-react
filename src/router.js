@@ -16,10 +16,19 @@ const DemoSite = lazy(() => import('components/DemoSite'))
 const PhotoFetcher = lazy(() => import('components/PhotoFetcher'))
 const Iframes = lazy(() => import('components/IframeDemos'))
 
+const Home = lazy(() => import('components/Home'))
+const SwitchRoutesContainer = lazy(() => import('components/RouterComponents'))
+const NoMatch = lazy(() => import('components/NoMatch'))
+const TodoList = lazy(() => import('components/TodoList'))
+const CreditCardForm = lazy(() => import('components/CreditCardForm'))
+const DemoSite = lazy(() => import('components/DemoSite'))
+const PhotoFetcher = lazy(() => import('components/PhotoFetcher'))
+const Iframes = lazy(() => import('components/IframeDemos'))
+
 const routes = [
   {
     path: PATHES.HOME,
-    component: PhotoFetcher,
+    component: Home,
     exact: true,
     routes: [],
   },
