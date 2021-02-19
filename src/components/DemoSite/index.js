@@ -11,8 +11,7 @@ import Grid from '@material-ui/core/Grid'
 import { Link as RouterLink } from 'react-router-dom'
 import config from './config'
 
-const useStyles = makeStyles({
-  root: {},
+const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
     margin: '0 auto',
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
     height: 200,
     backgroundSize: 'contain',
   },
-})
+}))
 
 export default function DemoSite() {
   const classes = useStyles()

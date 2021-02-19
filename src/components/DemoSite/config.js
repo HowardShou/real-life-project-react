@@ -1,4 +1,5 @@
 import creditCard from 'assets/dynamic-credit-card-form.png'
+import creditCardGif from 'assets/dynamic-credit-card-form.gif'
 import todo from 'assets/simple-Todo-List.png'
 import marquee from 'assets/dynamic-marquee.png'
 import readingProgressBar from 'assets/reading-progress-bar.png'
@@ -10,7 +11,7 @@ const config = [
   {
     title: 'Fancy Credit Card Form',
     content: '123',
-    image: creditCard,
+    image: creditCardGif,
     linkConfig: {
       pathname: PATHES.CREDIT_CARD_FORM,
     },
