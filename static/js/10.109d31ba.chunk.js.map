@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/NoMatch/index.js"],"names":["NoMatch"],"mappings":"6JAIeA,UAJC,WACd,OAAO,6BAAK","file":"static/js/10.109d31ba.chunk.js","sourcesContent":["const NoMatch = () => {\n  return <h1>{'oops, nothing match here :('}</h1>\n}\n\nexport default NoMatch\n"],"sourceRoot":""}
