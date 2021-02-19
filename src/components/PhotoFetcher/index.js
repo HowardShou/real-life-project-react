@@ -40,12 +40,9 @@ const PhotoFetcher = (props) => {
   const matchesSM = useMediaQuery(theme.breakpoints.only('sm'))
   const [page, setPage] = useState(1)
   const [picUrl, setPicUrl] = useState(`https://picsum.photos/v2/list?page=${page}`)
-  const [jsonUrl, setJsonUrl] = useState(null)
   const classes = useStyles()
 
-  const { data: jsonArr } = useSWR(jsonUrl)
   const { data: pics, isValidating } = useSWR(picUrl)
-  console.log('🚹🚺🚻🛏️🚼 ~ file: index.js ~ line 46 ~ PhotoFetcher ~ isValidating', isValidating)
 
   const formatPics = useMemo(
     () =>
@@ -79,10 +76,6 @@ const PhotoFetcher = (props) => {
         break
     }
   }, [])
-
-  const handleClick2 = () => {
-    setJsonUrl('https://jsonplaceholder.typicode.com/todos')
-  }
 
   useEffect(() => {
     setPicUrl(`https://picsum.photos/v2/list?page=${page}`)
@@ -123,7 +116,6 @@ const PhotoFetcher = (props) => {
                   </GridListTile>
                 ))}
           </GridList>
-          {jsonArr ? JSON.stringify(jsonArr) : null}
         </div>
       )}
     </Box>

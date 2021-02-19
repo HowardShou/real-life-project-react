@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box'
 import { fetcher } from 'utils'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Header from './components/Header'
 import PATHES from './constants/pathes'
 import useDynamicHeaderHeight from 'hooks/useDynamicHeaderHeight'
@@ -54,21 +54,9 @@ const useStyle = makeStyles((theme) => ({
 }))
 
 function AnimationApp() {
-  const theme = useTheme()
-  // const matches = useMediaQuery(theme.breakpoints.down('xs'))
   let location = useLocation()
   const headerHeight = useDynamicHeaderHeight()
   const classes = useStyle({ height: `calc(100% - ${headerHeight}px)` })
-
-  // const headerHeight = useMemo(() => {
-  //   let headerHeight = 0
-  //   if (location.pathname.includes('/Demos') && matches) headerHeight = DYNAMIC_MINUS_HEIGHT.DEMO_AND_MOBILE
-  //   else if (location.pathname.includes('/Demos') && !matches) headerHeight = DYNAMIC_MINUS_HEIGHT.DEMO_BUT_NOT_MOBILE
-  //   else if (!location.pathname.includes('/Demos') && matches) headerHeight = DYNAMIC_MINUS_HEIGHT.NOT_DEMO_BUT_MOBILE
-  //   else if (!location.pathname.includes('/Demos') && !matches)
-  //     headerHeight = DYNAMIC_MINUS_HEIGHT.NOT_DEMO_AND_NOT_MOBILE
-  //   return headerHeight
-  // }, [location.pathname, matches])
 
   const bgcolor = useMemo(() => {
     let bgcolor = ''
