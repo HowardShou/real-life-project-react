@@ -8,7 +8,7 @@ function RouteWithSubRoutes({ routes, ...props }) {
       {/* 過去要用下面這種寫法才能把 history、match往下傳 */}
       {/* {(routeProp) => <props.component {...routeProp} {...props} />} */}
       {/* 不過現在有了useHistory、useRouteMatch等hook，可以不用再這樣傳了 */}
-      <props.component routes={routes} />
+      <props.childComponent routes={routes} />
     </Route>
   )
 }

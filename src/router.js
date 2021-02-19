@@ -1,20 +1,5 @@
 import { lazy } from 'react'
 import PATHES from './constants/pathes'
-// import { SwitchRoutesContainer } from 'components/RouterComponents'
-// import NoMatch from 'components/NoMatch'
-// import TodoList from 'components/TodoList'
-// import CreditCardForm from 'components/CreditCardForm'
-// import DemoSite from 'components/DemoSite'
-// import PhotoFetcher from 'components/PhotoFetcher'
-// import Iframes from 'components/IframeDemos'
-
-const SwitchRoutesContainer = lazy(() => import('components/RouterComponents'))
-const NoMatch = lazy(() => import('components/NoMatch'))
-const TodoList = lazy(() => import('components/TodoList'))
-const CreditCardForm = lazy(() => import('components/CreditCardForm'))
-const DemoSite = lazy(() => import('components/DemoSite'))
-const PhotoFetcher = lazy(() => import('components/PhotoFetcher'))
-const Iframes = lazy(() => import('components/IframeDemos'))
 
 const Home = lazy(() => import('components/Home'))
 const SwitchRoutesContainer = lazy(() => import('components/RouterComponents'))
@@ -28,55 +13,55 @@ const Iframes = lazy(() => import('components/IframeDemos'))
 const routes = [
   {
     path: PATHES.HOME,
-    component: Home,
+    childComponent: Home,
     exact: true,
     routes: [],
   },
   {
     path: PATHES.DEMOS,
-    component: SwitchRoutesContainer,
+    childComponent: SwitchRoutesContainer,
     // 若設為true，/Demos/OOXX...等路徑都會因為不合於/Demos而不被render!
     exact: false,
     routes: [
       {
         path: PATHES.DEMOS,
-        component: DemoSite,
+        childComponent: DemoSite,
         exact: true,
         routes: [],
       },
       {
         path: PATHES.CREDIT_CARD_FORM,
-        component: CreditCardForm,
+        childComponent: CreditCardForm,
         exact: true,
         routes: [],
       },
       {
         path: PATHES.TODOLIST,
-        component: TodoList,
+        childComponent: TodoList,
         exact: true,
         routes: [],
       },
       {
         path: PATHES.PHOTOS_FETCHER,
-        component: PhotoFetcher,
+        childComponent: PhotoFetcher,
         exact: true,
         routes: [],
       },
       {
         path: PATHES.ONLINE_DEMOS,
-        component: Iframes,
+        childComponent: Iframes,
         exact: true,
         routes: [],
       },
       {
         path: '*',
-        component: NoMatch,
+        childComponent: NoMatch,
       },
     ],
   },
   {
     path: '*',
-    component: NoMatch,
+    childComponent: NoMatch,
   },
 ]
 

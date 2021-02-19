@@ -10,17 +10,17 @@ const iconStyle = {
 }
 
 const MainHeadConfig = [
-  // {
-  //   path: PATHES.HOME,
-  //   icon: <HomeOutlinedIcon style={iconStyle} />,
-  //   isRouterLink: true,
-  //   title: 'Home',
-  // },
   {
     path: PATHES.DEMOS,
+    icon: <HomeOutlinedIcon style={iconStyle} />,
+    isRouterLink: true,
+    title: 'Home',
+  },
+  {
+    path: PATHES.ONLINE_DEMOS,
     icon: <AppsIcon style={iconStyle} />,
     isRouterLink: true,
-    title: 'Demos',
+    title: 'Online Demos',
   },
   {
     path: 'https://github.com/HowardShou/real-life-project-react',
