@@ -10,12 +10,12 @@ const iconStyle = {
 }
 
 const MainHeadConfig = [
-  {
-    path: PATHES.HOME,
-    icon: <HomeOutlinedIcon style={iconStyle} />,
-    isRouterLink: true,
-    title: 'Home',
-  },
+  // {
+  //   path: PATHES.HOME,
+  //   icon: <HomeOutlinedIcon style={iconStyle} />,
+  //   isRouterLink: true,
+  //   title: 'Home',
+  // },
   {
     path: PATHES.DEMOS,
     icon: <AppsIcon style={iconStyle} />,
