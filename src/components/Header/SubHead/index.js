@@ -25,13 +25,13 @@ const SubHead = () => {
 
   useEffect(() => {
     let id = null
-    if (location.pathname.includes('/Demo')) {
+    if (location.pathname !== PATHES.ONLINE_DEMOS) {
       setDemoChecked(true)
       setTransitionDemoChecked(true)
     } else {
       setTransitionDemoChecked(false)
       id = setTimeout(() => {
-        //wait for transition over then destroy dom
+        //wait for transition over then destroy DOM
         setDemoChecked(false)
       }, 500)
     }
@@ -56,7 +56,7 @@ const SubHead = () => {
               <Button onClick={() => history.push(PATHES.CREDIT_CARD_FORM)}>Credit Card Form</Button>
               <Button onClick={() => history.push(PATHES.TODOLIST)}>ToDo List</Button>
               <Button onClick={() => history.push(PATHES.PHOTOS_FETCHER)}>Photos Fetcher</Button>
-              <Button onClick={() => history.push(PATHES.ONLINE_DEMOS)}>Other Online Demos</Button>
+              {/* <Button onClick={() => history.push(PATHES.ONLINE_DEMOS)}>Other Online Demos</Button> */}
             </ButtonGroup>
           </Box>
         </Grow>

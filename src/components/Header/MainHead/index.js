@@ -9,10 +9,14 @@ import styles from './MainHead.module.scss'
 import { useTheme, makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import MainHeadConfig from './config'
+import PATHES from 'constants/pathes'
 
 const useStyle = makeStyles({
-  title: {
+  titleContainer: {
     maxWidth: '170px',
+  },
+  title: {
+    textDecoration: 'none',
   },
   icons: {
     maxWidth: '190px',
@@ -28,8 +32,15 @@ const Header = () => {
     <Box display='flex' justifyContent='space-between' alignItems='center' bgcolor='common.black'>
       <Box display='flex' alignItems='center'>
         <Box component='img' className={styles.logo} src={logo} alt='logo' />
-        <Typography component='div' variant='h5' className={matches ? classes.title : null}>
-          <Box color='common.white' fontStyle='italic' letterSpacing={1}>{`Howard's Demo Site`}</Box>
+        <Typography variant='h5' className={matches ? classes.titleContainer : null}>
+          <Box
+            color='common.white'
+            fontStyle='italic'
+            letterSpacing={1}
+            component={RouterLink}
+            to={PATHES.HOME}
+            className={classes.title}
+          >{`Howard's Demo Site`}</Box>
         </Typography>
       </Box>
       <Box display='flex' justifyContent='flex-end' flexWrap='wrap' className={matches ? classes.icons : null}>

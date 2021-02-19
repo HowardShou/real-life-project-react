@@ -21,7 +21,7 @@ function ReadingProgressBar() {
         src='https://codepen.io/Aksas/embed/RwGYXRE?height=640&theme-id=dark&default-tab=js,result'
         frameBorder='no'
         loading='lazy'
-        allowtransparency
+        allowtransparency='true'
         allowFullScreen
       >
         See the Pen <a href='https://codepen.io/Aksas/pen/RwGYXRE'>dynamic progress bar depends on scroll height</a> by
@@ -46,7 +46,7 @@ function DebounceThrottleDemo() {
         frameBorder='no'
         loading='lazy'
         allowtransparency='true'
-        allowFullScreen='true'
+        allowFullScreen
       >
         See the Pen <a href='https://codepen.io/Aksas/pen/QWyYgyG'>debounce and throttle</a> by HowardShou (
         <a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -69,12 +69,36 @@ function DynamicMarquee() {
         src='https://codepen.io/Aksas/embed/WNrzWKz?height=265&theme-id=dark&default-tab=js,result'
         frameBorder='no'
         loading='lazy'
-        allowtransparency
+        allowtransparency='true'
         allowFullScreen
       >
         See the Pen{' '}
         <a href='https://codepen.io/Aksas/pen/WNrzWKz'>Marquee control by js example(controled by web animation api)</a>
         by HowardShou (<a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
+    </Box>
+  )
+}
+
+function AccessCssVariable() {
+  return (
+    <Box mb={3}>
+      <Typography component='div' variant='h4' id='access-css-variable'>
+        <Box mb={2} color='common.black' letterSpacing={1}>{`Access CSS Variable in Valina JS`}</Box>
+      </Typography>
+      <iframe
+        height='386'
+        style={iframeWidth}
+        scrolling='no'
+        title='Access CSS Variable in Valina JS'
+        src='https://codepen.io/Aksas/embed/BaQRJrO?height=386&theme-id=dark&default-tab=js,result'
+        frameBorder='no'
+        loading='lazy'
+        allowtransparency='true'
+        allowFullScreen
+      >
+        See the Pen <a href='https://codepen.io/Aksas/pen/BaQRJrO'>Access CSS Variable in Valina JS</a> by HowardShou (
+        <a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
       </iframe>
     </Box>
   )
@@ -93,10 +117,11 @@ const Iframes = () => {
   }, [location.hash])
 
   return (
-    <Box display='flex' width='80%' maxWidth='80%' flexDirection='column' justifyContent='centerer'>
+    <Box display='flex' width='100%' flexDirection='column' justifyContent='centerer'>
       <ReadingProgressBar />
       <DebounceThrottleDemo />
       <DynamicMarquee />
+      <AccessCssVariable />
     </Box>
   )
 }

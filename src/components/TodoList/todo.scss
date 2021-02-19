@@ -1,5 +1,8 @@
 .list-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   top: -20px;
   background-color: #fff;
   border-radius: 10px;

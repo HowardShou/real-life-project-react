@@ -2,11 +2,13 @@ import { useState, useMemo, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import Pagination from '@material-ui/lab/Pagination'
 import Image from 'material-ui-image'
 import Box from '@material-ui/core/Box'
+import LoadingCircle from 'components/LoadingCircle'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 function getRandom(x) {
@@ -38,11 +40,9 @@ const PhotoFetcher = (props) => {
   const matchesSM = useMediaQuery(theme.breakpoints.only('sm'))
   const [page, setPage] = useState(1)
   const [picUrl, setPicUrl] = useState(`https://picsum.photos/v2/list?page=${page}`)
-  const [jsonUrl, setJsonUrl] = useState(null)
   const classes = useStyles()
 
-  const { data: jsonArr } = useSWR(jsonUrl)
-  const { data: pics } = useSWR(picUrl)
+  const { data: pics, isValidating } = useSWR(picUrl)
 
   const formatPics = useMemo(
     () =>
@@ -77,35 +77,47 @@ const PhotoFetcher = (props) => {
     }
   }, [])
 
-  const handleClick2 = () => {
-    setJsonUrl('https://jsonplaceholder.typicode.com/todos')
-  }
-
   useEffect(() => {
     setPicUrl(`https://picsum.photos/v2/list?page=${page}`)
   }, [page])
 
   return (
-    <Box display='block' width='80%'>
-      <Box display='flex' alignItems='center' justifyContent='space-between' mb={2}>
-        <Button variant='contained' color='primary' onClick={(e, value) => handleClick1('random', value)}>
-          Fetch Random Page
-        </Button>
-
-        <Pagination count={30} page={page} color='primary' onChange={(e, value) => handleClick1('normal', value)} />
+    <Box display='block' width='100%'>
+      <Box mb={2}>
+        <Grid container spacing={1}>
+          <Grid container xs={12} sm={6} justify={matchesXS ? 'center' : 'flex-start'}>
+            <Box mb={matchesXS ? 2 : 0}>
+              <Button variant='contained' color='primary' onClick={(e, value) => handleClick1('random', value)}>
+                Fetch Random Page
+              </Button>
+            </Box>
+          </Grid>
+          <Grid container xs={12} sm={6} justify={matchesXS ? 'center' : 'flex-end'}>
+            <Pagination
+              count={30}
+              page={page}
+              color='primary'
+              size={matchesSM ? 'small' : 'medium'}
+              onChange={(e, value) => handleClick1('normal', value)}
+            />
+          </Grid>
+        </Grid>
       </Box>
-      <div className={classes.root}>
-        <GridList cellHeight={200} className={classes.gridList} cols={4}>
-          {!formatPics
-            ? []
-            : formatPics?.map((pic) => (
-                <GridListTile key={pic.download_url} cols={pic.cols || 1}>
-                  <Image src={pic.download_url} alt={pic.title} style={igStyle} />
-                </GridListTile>
-              ))}
-        </GridList>
-        {jsonArr ? JSON.stringify(jsonArr) : null}
-      </div>
+      {isValidating ? (
+        <LoadingCircle />
+      ) : (
+        <div className={classes.root}>
+          <GridList cellHeight={200} className={classes.gridList} cols={4}>
+            {!formatPics
+              ? []
+              : formatPics?.map((pic) => (
+                  <GridListTile key={pic.download_url} cols={pic.cols || 1}>
+                    <Image src={pic.download_url} alt={pic.title} style={igStyle} />
+                  </GridListTile>
+                ))}
+          </GridList>
+        </div>
+      )}
     </Box>
   )
 }

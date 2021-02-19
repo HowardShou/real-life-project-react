@@ -1,9 +1,17 @@
 import creditCard from 'assets/dynamic-credit-card-form.png'
-import todo from 'assets/simple-Todo-List.png'
-import marquee from 'assets/dynamic-marquee.png'
-import readingProgressBar from 'assets/reading-progress-bar.png'
+import creditCardGif from 'assets/dynamic-credit-card-form.gif'
 import debounceThrottle from 'assets/debounce-and-throttle.png'
-import ptotos from 'assets/simple-photos-distributor.png'
+import debounceThrottleGif from 'assets/debounceThrottle.gif'
+import marquee from 'assets/dynamic-marquee.png'
+import marqueeGif from 'assets/marquee.gif'
+import ptotosFetcher from 'assets/simple-photos-distributor.png'
+import photoFetcherGif from 'assets/photoFetcher.gif'
+import readingProgressBar from 'assets/reading-progress-bar.png'
+import readingProgressBarGif from 'assets/readingProgress.gif'
+import todo from 'assets/simple-Todo-List.png'
+import todoGif from 'assets/todo.gif'
+import cssVarApi from 'assets/cssVarApi.png'
+import cssVarApiGif from 'assets/cssVarApi.gif'
 import PATHES from 'constants/pathes'
 
 const config = [
@@ -11,6 +19,8 @@ const config = [
     title: 'Fancy Credit Card Form',
     content: '123',
     image: creditCard,
+    gif: creditCardGif,
+    showGif: true,
     linkConfig: {
       pathname: PATHES.CREDIT_CARD_FORM,
     },
@@ -19,6 +29,8 @@ const config = [
     title: 'Multifunction Todo List',
     content: '456',
     image: todo,
+    gif: todoGif,
+    showGif: true,
     linkConfig: {
       pathname: PATHES.TODOLIST,
     },
@@ -26,7 +38,9 @@ const config = [
   {
     title: 'Photo Fetcher',
     content: '789',
-    image: ptotos,
+    image: ptotosFetcher,
+    gif: photoFetcherGif,
+    showGif: false,
     linkConfig: {
       pathname: PATHES.PHOTOS_FETCHER,
     },
@@ -35,6 +49,8 @@ const config = [
     title: 'Dynamic Reading Progress Bar',
     content: '012',
     image: readingProgressBar,
+    gif: readingProgressBarGif,
+    showGif: false,
     linkConfig: {
       pathname: PATHES.ONLINE_DEMOS,
       hash: '#dynamic-reading-progress-bar',
@@ -44,6 +60,8 @@ const config = [
     title: 'Debounce And Throttle',
     content: '012',
     image: debounceThrottle,
+    gif: debounceThrottleGif,
+    showGif: false,
     linkConfig: {
       pathname: PATHES.ONLINE_DEMOS,
       hash: '#debounce-and-throttle',
@@ -53,6 +71,19 @@ const config = [
     title: 'Dynamic Marquee',
     content: '345',
     image: marquee,
+    gif: marqueeGif,
+    showGif: false,
+    linkConfig: {
+      pathname: PATHES.ONLINE_DEMOS,
+      hash: '#dynamic-marquee',
+    },
+  },
+  {
+    title: 'Access CSS Variable in Valina JS',
+    content: '345',
+    image: cssVarApi,
+    gif: cssVarApiGif,
+    showGif: false,
     linkConfig: {
       pathname: PATHES.ONLINE_DEMOS,
       hash: '#dynamic-marquee',
