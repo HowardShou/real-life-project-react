@@ -1,11 +1,20 @@
-import { SwitchRoutesContainer } from 'components/RouterComponents'
-import NoMatch from 'components/NoMatch'
-import TodoList from 'components/TodoList'
-import CreditCardForm from 'components/CreditCardForm'
-import DemoSite from 'components/DemoSite'
-import PhotoFetcher from 'components/PhotoFetcher'
-import Iframes from 'components/IframeDemos'
+import { lazy } from 'react'
 import PATHES from './constants/pathes'
+// import { SwitchRoutesContainer } from 'components/RouterComponents'
+// import NoMatch from 'components/NoMatch'
+// import TodoList from 'components/TodoList'
+// import CreditCardForm from 'components/CreditCardForm'
+// import DemoSite from 'components/DemoSite'
+// import PhotoFetcher from 'components/PhotoFetcher'
+// import Iframes from 'components/IframeDemos'
+
+const SwitchRoutesContainer = lazy(() => import('components/RouterComponents'))
+const NoMatch = lazy(() => import('components/NoMatch'))
+const TodoList = lazy(() => import('components/TodoList'))
+const CreditCardForm = lazy(() => import('components/CreditCardForm'))
+const DemoSite = lazy(() => import('components/DemoSite'))
+const PhotoFetcher = lazy(() => import('components/PhotoFetcher'))
+const Iframes = lazy(() => import('components/IframeDemos'))
 
 const routes = [
   {
