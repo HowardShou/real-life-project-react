@@ -1,7 +1,9 @@
 import creditCard from 'assets/dynamic-credit-card-form.png'
 import creditCardGif from 'assets/dynamic-credit-card-form.gif'
-import debounceThrottle from 'assets/debounce-and-throttle.png'
+import debounceThrottle from 'assets/debounceThrottle.png'
 import debounceThrottleGif from 'assets/debounceThrottle.gif'
+import highlightText from 'assets/highlightText.png'
+import highlightTextGif from 'assets/highlightText.gif'
 import marquee from 'assets/dynamic-marquee.png'
 import marqueeGif from 'assets/marquee.gif'
 import ptotosFetcher from 'assets/simple-photos-distributor.png'
@@ -65,6 +67,17 @@ const config = [
     linkConfig: {
       pathname: PATHES.ONLINE_DEMOS,
       hash: '#debounce-and-throttle',
+    },
+  },
+  {
+    title: 'Highlight Text',
+    content: '012',
+    image: highlightText,
+    gif: highlightTextGif,
+    showGif: false,
+    linkConfig: {
+      pathname: PATHES.ONLINE_DEMOS,
+      hash: '#highlight-text',
     },
   },
   {

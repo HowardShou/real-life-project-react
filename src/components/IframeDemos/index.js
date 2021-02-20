@@ -104,6 +104,30 @@ function AccessCssVariable() {
   )
 }
 
+function HighlightText() {
+  return (
+    <Box mb={3}>
+      <Typography component='div' variant='h4' id='highlight-text'>
+        <Box mb={2} color='common.black' letterSpacing={1}>{`Highlight Text (without dangerouslySetInnerHTML)`}</Box>
+      </Typography>
+      <iframe
+        height='368'
+        style={iframeWidth}
+        scrolling='no'
+        title='HighlightText ( without  dangerouslySetInnerHTML)'
+        src='https://codepen.io/Aksas/embed/VwmzWYE?height=368&theme-id=dark&default-tab=js,result'
+        frameBorder='no'
+        loading='lazy'
+        allowtransparency='true'
+        allowFullScreen
+      >
+        See the Pen <a href='https://codepen.io/Aksas/pen/VwmzWYE'>HighlightText ( without dangerouslySetInnerHTML)</a>{' '}
+        by HowardShou (<a href='https://codepen.io/Aksas'>@Aksas</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
+    </Box>
+  )
+}
+
 const Iframes = () => {
   const location = useLocation()
 
@@ -120,6 +144,7 @@ const Iframes = () => {
     <Box display='flex' width='100%' flexDirection='column' justifyContent='centerer'>
       <ReadingProgressBar />
       <DebounceThrottleDemo />
+      <HighlightText />
       <DynamicMarquee />
       <AccessCssVariable />
     </Box>
