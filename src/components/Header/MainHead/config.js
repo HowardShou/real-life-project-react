@@ -29,7 +29,7 @@ const MainHeadConfig = [
     isRouterLink: false,
   },
   {
-    path: 'https://www.linkedin.com/in/howard-shou-%E5%A3%BD%E5%93%81%E7%9A%93-6492b71a5/',
+    path: 'https://www.linkedin.com/in/%E5%93%81%E7%9A%93-%E5%A3%BD-6492b71a5/?locale=en_US',
     title: 'profile',
     icon: <AccountCircleIcon style={iconStyle} />,
     isRouterLink: false,
