@@ -1,0 +1,2 @@
+(this["webpackJsonpreal-life-project-react"]=this["webpackJsonpreal-life-project-react"]||[]).push([[8],{164:function(e,t,r){"use strict";r.r(t);var a=r(2),c=r(5),s=r(10);t.default=function(){return Object(a.jsx)(s.a,{to:c.a.DEMOS})}}}]);
+//# sourceMappingURL=8.63459edf.chunk.js.map
