@@ -36,8 +36,9 @@ const igStyle = {
 
 const PhotoFetcher = (props) => {
   const theme = useTheme()
-  const matchesXS = useMediaQuery(theme.breakpoints.only('xs'))
-  const matchesSM = useMediaQuery(theme.breakpoints.only('sm'))
+  const onlyXS = useMediaQuery(theme.breakpoints.only('xs'))
+  const onlySM = useMediaQuery(theme.breakpoints.only('sm'))
+  const SMBelow = useMediaQuery(theme.breakpoints.down('sm'))
   const [page, setPage] = useState(1)
   const [picUrl, setPicUrl] = useState(`https://picsum.photos/v2/list?page=${page}`)
   const classes = useStyles()
@@ -55,16 +56,16 @@ const PhotoFetcher = (props) => {
         const newUrl = `${protocol}//${domainArr.join('/')}/${width}/${height}`
 
         let cols = 1
-        if (matchesSM) cols = 2
-        else if (matchesXS) cols = 4
+        if (onlySM) cols = 2
+        else if (onlyXS) cols = 4
         else if ((idx + 1) % 3 === 0) cols = 2
 
         return { ...detail, download_url: newUrl, cols }
       }),
-    [pics, matchesXS, matchesSM]
+    [pics, onlyXS, onlySM]
   )
 
-  const handleClick1 = useCallback((type, payload) => {
+  const handleClick = useCallback((type, payload) => {
     switch (type) {
       case 'normal':
         setPage(payload)
@@ -85,20 +86,20 @@ const PhotoFetcher = (props) => {
     <Box display='block' width='100%'>
       <Box mb={2}>
         <Grid container spacing={1}>
-          <Grid container xs={12} sm={6} justify={matchesXS ? 'center' : 'flex-start'}>
-            <Box mb={matchesXS ? 2 : 0}>
-              <Button variant='contained' color='primary' onClick={(e, value) => handleClick1('random', value)}>
+          <Grid container item xs={12} sm={6} justify={onlyXS ? 'center' : 'flex-start'}>
+            <Box mb={onlyXS ? 2 : 0}>
+              <Button variant='contained' color='primary' onClick={(e, value) => handleClick('random', value)}>
                 Fetch Random Page
               </Button>
             </Box>
           </Grid>
-          <Grid container xs={12} sm={6} justify={matchesXS ? 'center' : 'flex-end'}>
+          <Grid container item xs={12} sm={6} justify={onlyXS ? 'center' : 'flex-end'}>
             <Pagination
               count={30}
               page={page}
               color='primary'
-              size={matchesSM ? 'small' : 'medium'}
-              onChange={(e, value) => handleClick1('normal', value)}
+              size={SMBelow ? 'small' : 'medium'}
+              onChange={(e, value) => handleClick('normal', value)}
             />
           </Grid>
         </Grid>
