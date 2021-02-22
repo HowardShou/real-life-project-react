@@ -6,6 +6,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { useHistory, useLocation } from 'react-router-dom'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import config from './config'
 import PATHES from 'constants/pathes'
 
 const useStyles = makeStyles({
@@ -53,10 +54,13 @@ const SubHead = () => {
               aria-label='text primary button group'
               className={matches ? classes.btnGroup : null}
             >
-              <Button onClick={() => history.push(PATHES.CREDIT_CARD_FORM)}>Credit Card Form</Button>
-              <Button onClick={() => history.push(PATHES.TODOLIST)}>ToDo List</Button>
-              <Button onClick={() => history.push(PATHES.PHOTOS_FETCHER)}>Photos Fetcher</Button>
-              {/* <Button onClick={() => history.push(PATHES.ONLINE_DEMOS)}>Other Online Demos</Button> */}
+              {config.map((item, idx) => {
+                return (
+                  <Button key={idx} onClick={() => history.push(item.path)}>
+                    {item.title}
+                  </Button>
+                )
+              })}
             </ButtonGroup>
           </Box>
         </Grow>

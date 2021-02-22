@@ -8,6 +8,8 @@ import marquee from 'assets/dynamic-marquee.png'
 import marqueeGif from 'assets/marquee.gif'
 import ptotosFetcher from 'assets/simple-photos-distributor.png'
 import photoFetcherGif from 'assets/photoFetcher.gif'
+import pagetitleTransformer from 'assets/pagetitle-transformer.png'
+import pagetitleTransformerGif from 'assets/pagetitle-transformer.gif'
 import readingProgressBar from 'assets/reading-progress-bar.png'
 import readingProgressBarGif from 'assets/readingProgress.gif'
 import todo from 'assets/simple-Todo-List.png'
@@ -45,6 +47,16 @@ const config = [
     showGif: false,
     linkConfig: {
       pathname: PATHES.PHOTOS_FETCHER,
+    },
+  },
+  {
+    title: 'Pagetitle transformer',
+    content: '789',
+    image: pagetitleTransformer,
+    gif: pagetitleTransformerGif,
+    showGif: false,
+    linkConfig: {
+      pathname: PATHES.PAGETITLE_TRANSFORMER,
     },
   },
   {

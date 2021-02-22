@@ -8,6 +8,7 @@ const TodoList = lazy(() => import('components/TodoList'))
 const CreditCardForm = lazy(() => import('components/CreditCardForm'))
 const DemoSite = lazy(() => import('components/DemoSite'))
 const PhotoFetcher = lazy(() => import('components/PhotoFetcher'))
+const PagetitleTransformer = lazy(() => import('components/PagetitleTransformer'))
 const Iframes = lazy(() => import('components/IframeDemos'))
 
 const routes = [
@@ -44,6 +45,12 @@ const routes = [
       {
         path: PATHES.PHOTOS_FETCHER,
         childComponent: PhotoFetcher,
+        exact: true,
+        routes: [],
+      },
+      {
+        path: PATHES.PAGETITLE_TRANSFORMER,
+        childComponent: PagetitleTransformer,
         exact: true,
         routes: [],
       },
